@@ -1,48 +1,68 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Pokédex</ion-title>
+    <ion-title>Personajes de Rick & Morty</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
+
+
+
+
+
+
+
+
+
+
+
 
   <!-- Buscador centrado -->
   <div class="busqueda-container">
     <ion-card>
       <ion-card-content>
         <ion-input
-          [(ngModel)]="pokemonName"
-          placeholder="Ingrese el nombre del pokémon buscado"
+          [(ngModel)]="characterName"
+          placeholder="Ingrese el nombre del personaje buscado"
           type="text">
         </ion-input>
         
-        <ion-button expand="block" (click)="getPokemonData(pokemonName)">
+        <ion-button expand="block" (click)="getCharacterData(characterName)">
           Buscar
         </ion-button>
       </ion-card-content>
     </ion-card>
   </div>
   <!-- Resultado del buscador -->
-  <div *ngIf="pokemonData && pokemonData.name" class="pokemon-detalle">
-    <h2>{{ pokemonData.name | titlecase }}</h2>
-    <img class="pokemon-img" [src]="pokemonData.sprites.front_default" alt="Sprite del Pokémon" />
-    <p><strong>Altura:</strong> {{ pokemonData.height }}</p>
-    <p><strong>Peso:</strong> {{ pokemonData.weight }}</p>
+  <div *ngIf="characterData && characterData.results[0]" class="pokemon-detalle">
+    <h2>{{ characterData.name | titlecase }}</h2>
+    <img class="pokemon-img" [src]="characterData.results[0].image" alt="Imagen del personaje" />
+    <p><strong>Status:</strong> {{ characterData.results[0].status }}</p>
+    <p><strong>Especie:</strong> {{ characterData.results[0].species }}</p>
+    <p><strong>Género:</strong> {{ characterData.results[0].gender }}</p>
+    <p><strong>Planeta de oringen:</strong> {{ characterData.results[0].origin.name }}</p>
 
-    <p><strong>Tipo(s):</strong></p>
-      <h4 *ngFor="let tipo of pokemonData.types">
-        - {{ tipo.type.name }}
-      </h4>
+    <button (click)="navigateToPage('/detalles')" >Ver detalles</button>
   </div>
 
+
+
+
+
+
+
+
+
+
   <!-- Lista de Pokémon cargados -->
-  <ion-grid style="margin: auto;" class="gridPokemon">
+  <ion-grid style="margin: auto;" class="gridCharacter">
     <ion-row>
-      <ion-col size="6" *ngFor="let pokemon of pokemons; let i = index">
+      <ion-col size="6" *ngFor="let character of characters; let i = index">
         <ion-card class="pokemon-card">
-          <img [src]="getImageUrl(i)" alt="{{ pokemon.name }}" />
+          <!-- src="{{getImageUrl(i)}}" -->
+          <img [src]="getImageUrl(i)" alt="{{ character.name }}" />
           <ion-card-header>
-            <ion-card-title>{{ pokemon.name | titlecase }}</ion-card-title>
+            <ion-card-title>{{ character.name | titlecase }}</ion-card-title>
           </ion-card-header>
         </ion-card>
       </ion-col>
@@ -50,10 +70,10 @@
   </ion-grid>
 
   <!-- Scroll infinito -->
-  <ion-infinite-scroll (ionInfinite)="loadPokemons($event)" threshold="100px">
+  <ion-infinite-scroll (ionInfinite)="loadCharacters($event)" threshold="100px">
     <ion-infinite-scroll-content
       loadingSpinner="bubbles"
-      loadingText="Cargando más Pokémon...">
+      loadingText="Cargando más personajes...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
 

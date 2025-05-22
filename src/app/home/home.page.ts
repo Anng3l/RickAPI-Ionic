@@ -5,9 +5,11 @@ import { IonContent, IonInput } from '@ionic/angular/standalone';
 
 import { IonicModule } from "@ionic/angular"
 import { HttpClient } from '@angular/common/http';
-import { every } from 'rxjs';
+import { every, Subscription } from 'rxjs';
 
 import { FormsModule } from '@angular/forms';
+import { DatosCompartidosService } from '../Services/datos-compartidos.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home', 
@@ -18,29 +20,35 @@ import { FormsModule } from '@angular/forms';
 })
 
 export class HomePage implements OnInit {
-  pokemons: any[] = [];
+  characters: any[] = [];
   offset = 0;
-  limit = 20;
+  buttonLimit = 1;
+  topLimit = 20;
+
+  limit = 1;
   loading = false;
 
-  pokemonName:string = "";
-  pokemonData:any=null;
+  characterName:string = "";
+  characterData:any=null;
 
-  constructor(private http: HttpClient) {}
+
+  constructor(private http: HttpClient, private dataService: DatosCompartidosService, private router:Router) {}
 
   ngOnInit() {
-    this.loadPokemons();
+    this.loadCharacters();
   }
 
-  loadPokemons(event?: any) {
+  loadCharacters(event?: any) {
     if (this.loading) return;
     this.loading = true;
 
     this.http
-      .get<any>(`https://pokeapi.co/api/v2/pokemon?offset=${this.offset}&limit=${this.limit}`)
+      .get<any>(`https://rickandmortyapi.com/api/character/?page=${this.limit}`)
       .subscribe((res) => {
-        this.pokemons = [...this.pokemons, ...res.results];
-        this.offset += this.limit;
+        console.log("Resultados: ", res)
+        this.characters = [...this.characters, ...res.results];
+        this.limit++;
+        console.log(`https://rickandmortyapi.com/api/character/?page=${this.limit}`)
         this.loading = false;
 
         if (event) {
@@ -55,19 +63,29 @@ export class HomePage implements OnInit {
   }
 
   getImageUrl(index: number): string {
-    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index + 1}.png`;
+    return `https://rickandmortyapi.com/api/character/avatar/${index + 1}.jpeg`;
   }
 
+  datosCompartidos(datos:any) {
+    this.dataService.setDatos(datos)
+  }
 
-  getPokemonData(name:string) {
-    this.pokemonName = "";
-    this.pokemonData = null;
+  getCharacterData(name:string) {
+    this.characterName = "";
+    this.characterData = null;
+    console.log(name)
 
-
+    
     this.http
-      .get<any>(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      .get<any>(`https://rickandmortyapi.com/api/character/?name=${name}`)
       .subscribe((res) => {
-        this.pokemonData = res;
+        this.characterData = res;
+        console.log(this.characterData)
+        this.datosCompartidos(this.characterData);
       });
+  }
+
+  navigateToPage(detalles:string):void {
+    this.router.navigate([detalles])
   }
 }

@@ -8,10 +8,18 @@ import { IonicModule } from '@ionic/angular';
 import { AppComponent } from './app/app.component';
 import { routes } from './app/app.routes';
 
+import { provideFirestore, getFirestore } from "@angular/fire/firestore"
+import { provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp } from 'firebase/app';
+import { environment } from './environments/environment.prod';
+
 bootstrapApplication(AppComponent, {
   providers: [
     importProvidersFrom(IonicModule.forRoot({})),
     provideHttpClient(),
     provideRouter(routes),
+    provideFirebaseApp(() => initializeApp(environment.mifirebaseConfig)),
+    provideFirestore(() => getFirestore()) 
+
   ],
 });

@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Datos particulares del personaje buscado</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">
+
+  <!-- Resultado del buscador -->
+  <div *ngIf="characterData && characterData.results[0]" class="pokemon-detalle">
+    <h2>{{ characterData.name | titlecase }}</h2>
+    <img class="pokemon-img" [src]="characterData.results[0].image" alt="Imagen del personaje" />
+    <p><strong>Id:</strong> {{ characterData.results[0].id }}</p>
+    <p><strong>Nombre:</strong> {{ characterData.results[0].name }}</p>
+    <p><strong>Status:</strong> {{ characterData.results[0].status }}</p>
+    <p><strong>Especie:</strong> {{ characterData.results[0].species }}</p>
+    <p><strong>Género:</strong> {{ characterData.results[0].gender }}</p>
+    <p><strong>Planeta de oringen:</strong> {{ characterData.results[0].origin.name }}</p>
+    <p><strong>Localización actual:</strong> {{ characterData.results[0].location.name }}</p>
+    <ion-input [(ngModel)]="comentario" placeholder="Escribe comentario" fill="outline"></ion-input>
+
+    <button expand="block" (click)="sendContent()">Enviar</button>
+
+  </div>
+
+</ion-content>
