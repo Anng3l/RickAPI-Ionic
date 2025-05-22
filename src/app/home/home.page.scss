@@ -1,0 +1,44 @@
+.busqueda-container {
+  max-width: 400px;
+  margin: 0 auto 20px auto;
+}
+
+.pokemon-detalle {
+  text-align: center;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+
+  background-color: #f8f8f8;
+
+  display: block;
+  width: 200px;
+  margin: auto;
+}
+
+.pokemon-img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.pokemon-card {
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  text-align: center;
+  padding: 12px;
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin: auto;
+}
+
+.gridPokemon {
+  display: block;
+  width: 90vw;              // ocupa el 90% del ancho de la pantalla
+  max-width: 600px;         // nunca más ancho que esto
+  
+}
