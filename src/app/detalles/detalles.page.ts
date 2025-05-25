@@ -5,7 +5,6 @@ import { IonContent, IonHeader, IonTitle, IonToolbar } from '@ionic/angular/stan
 import { DatosCompartidosService } from '../Services/datos-compartidos.service';
 import { FirebaseService } from '../Services/firebase/firebase.service';
 
-
 import { IonicModule } from "@ionic/angular";
 
 
@@ -15,7 +14,7 @@ import { IonicModule } from "@ionic/angular";
   styleUrls: ['./detalles.page.scss'],
   standalone: true,
   imports: [
-  IonContent, IonHeader, IonTitle, IonToolbar,
+  IonicModule,
   CommonModule, FormsModule
 ]
 })
@@ -35,22 +34,24 @@ export class DetallesPage implements OnInit {
   constructor(private dataService:DatosCompartidosService, private datosEnvio:FirebaseService) { }
 
   ngOnInit() {
-    this.characterData = this.dataService.getData();
+    this.characterData = this.dataService.getPersonajeCompartido();
+    console.log("GetPersonajeCompartido: ", this.dataService.getPersonajeCompartido())
+    console.log("Character data: ", this.characterData);
   }
 
   sendContent() {
-    this.image=this.characterData.results[0].image
-    this.idApi=this.characterData.results[0].id
-    this.nombre=this.characterData.results[0].name
-    this.status=this.characterData.results[0].status
-    this.species=this.characterData.results[0].species
-    this.genre=this.characterData.results[0].gender
-    this.originPlanet=this.characterData.results[0].origin.name
-    this.currentLocaton=this.characterData.results[0].location.name
+    this.image=this.characterData.image
+    this.idApi=this.characterData.id
+    this.nombre=this.characterData.name
+    this.status=this.characterData.status
+    this.species=this.characterData.species
+    this.genre=this.characterData.gender
+    this.originPlanet=this.characterData.origin.name
+    this.currentLocaton=this.characterData.location.name
     this.comentario
 
 
-    console.log("Sepcies: ", this.characterData.results[0].species)
+    console.log("Sepcies: ", this.comentario)
 
 
     this.datosEnvio.sendContent(this.image,this.idApi, this.nombre, this.status, this.species, this.genre, this.originPlanet, this.currentLocaton,this.comentario

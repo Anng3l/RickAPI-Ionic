@@ -85,7 +85,9 @@ export class HomePage implements OnInit {
       });
   }
 
-  navigateToPage(detalles:string):void {
-    this.router.navigate([detalles])
+  navigateToPage(detalles:string, personaje:any):void {
+    this.router.navigate([detalles]);
+    this.dataService.setPersonajeCompartido(personaje);
+    console.log("Compartido zzzzzzzzzzzzzzz: ", personaje);
   }
 }

@@ -6,6 +6,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DatosCompartidosService {
 
+  private personajeDetalles:any;
+
   private datosCompartidos: any;
   
   setDatos(data: any)
@@ -14,6 +16,15 @@ export class DatosCompartidosService {
   }
   getData() {
     return this.datosCompartidos;
+  }
+
+  
+  setPersonajeCompartido(data: any):void
+  {
+    this.personajeDetalles = data;
+  }
+  getPersonajeCompartido():any {
+    return this.personajeDetalles;
   }
 
   constructor() { }
