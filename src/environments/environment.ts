@@ -5,6 +5,13 @@
 export const environment = {
   production: false,
   mifirebaseConfig: {
+    apiKey: "AIzaSyBYNSV-w25kWc0alTNfuaGHaq1YTzzARNQ",
+    authDomain: "damov-f01bc.firebaseapp.com",
+    projectId: "damov-f01bc",
+    storageBucket: "damov-f01bc.firebasestorage.app",
+    messagingSenderId: "301407417101",
+    appId: "1:301407417101:web:d596bdc7fa7c8ef43a3644",
+    measurementId: "G-LCTPLB0V1S"
   }
 };
 
