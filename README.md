@@ -29,10 +29,9 @@ Aplicación móvil desarrollada con *Angular* e *Ionic* que permite buscar perso
    ```bash
    git clone <URL_DEL_REPOSITORIO>
 
-   ![alt text](image.png)
-
-
-   ![alt text](image-1.png)
-
-
-   ![alt text](image-2.png)
+   ![Página inicial](../RickAPI-Ionic/images/pagina%20inicial.png)
+   ![Búsqueda de personaje](../RickAPI-Ionic/images/busqueda%201.png)
+   ![Límite de la búsqueda con el infinite scroll](../RickAPI-Ionic/images/busqueda%201.1.png)
+   ![Página con los detalles del personaje buscado](../RickAPI-Ionic/images/detalles%20de%20personaje.png)
+   ![Comentario agregado](../RickAPI-Ionic/images/detalles%20con%20comentario.png)
+   ![Documento registrado en la base de datos](../RickAPI-Ionic/images/FirebaseCreacion.png.png)
