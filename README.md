@@ -24,9 +24,15 @@ Aplicación móvil desarrollada con *Angular* e *Ionic* que permite buscar perso
 ---
 
 ## Capturas de pantalla
-![Página inicial](./images/pagina%20inicial.png)
-![Búsqueda de personaje](./images/busqueda%201.png)
-![Límite de la búsqueda con el infinite scroll](./images/busqueda%201.1.png)
-![Página con los detalles del personaje buscado](./images/detalles%20de%20personaje.png)
-![Comentario agregado](./images/detalles%20con%20comentario.png)
-![Documento registrado en la base de datos](./images/FirebaseCreacion.png.png)
+ - Página inicial
+![_](./images/pagina%20inicial.png)
+ - Búsqueda de personaje
+![_](./images/busqueda%201.png)
+ - Límite de la búsqueda con el infinite scroll
+![_](./images/busqueda%201.1.png)
+ - Página con los detalles del personaje buscado
+![_](./images/detalles%20de%20personaje.png)
+ - Comentario agregado
+![_](./images/detalles%20con%20comentario.png)
+ - Documento registrado en la base de datos
+![_](./images/FirebaseCreacion.png)
