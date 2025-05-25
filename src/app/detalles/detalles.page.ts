@@ -50,10 +50,6 @@ export class DetallesPage implements OnInit {
     this.currentLocaton=this.characterData.location.name
     this.comentario
 
-
-    console.log("Sepcies: ", this.comentario)
-
-
     this.datosEnvio.sendContent(this.image,this.idApi, this.nombre, this.status, this.species, this.genre, this.originPlanet, this.currentLocaton,this.comentario
     );
   }

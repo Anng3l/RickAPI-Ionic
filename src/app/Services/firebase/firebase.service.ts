@@ -36,7 +36,7 @@ export class FirebaseService {
   genre:string,
   originPlanet:string,
   currentLocaton:string,
-comentario:string)
+  comentario:string)
   {
     const messagesRef=collection(this.firestore, "Actividad en clase Angel Maldonado")
     const characterData:CharacterData={

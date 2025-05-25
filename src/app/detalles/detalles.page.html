@@ -8,9 +8,9 @@
 
 <ion-content class="ion-padding">
 
-  <div *ngIf="characterData" class="pokemon-detalle">
+  <div *ngIf="characterData">
     <h2>{{ characterData.name | titlecase }}</h2>
-    <img class="pokemon-img" [src]="characterData.image" alt="Imagen del personaje" />
+    <img [src]="characterData.image" alt="Imagen del personaje" />
     <p><strong>Id:</strong> {{ characterData.id }}</p>
     <p><strong>Nombre:</strong> {{ characterData.name }}</p>
     <p><strong>Status:</strong> {{ characterData.status }}</p>
@@ -18,10 +18,9 @@
     <p><strong>Género:</strong> {{ characterData.gender }}</p>
     <p><strong>Planeta de oringen:</strong> {{ characterData.origin.name }}</p>
     <p><strong>Localización actual:</strong> {{ characterData.location.name }}</p>
-    <ion-input [(ngModel)]="comentario" placeholder="Escribe comentario" fill="outline" name="comentario"></ion-input>
+    <ion-input [(ngModel)]="comentario" placeholder="Escribe un comentario" fill="outline" name="comentario"></ion-input>
 
-    <button expand="block" (click)="sendContent()">Enviar</button>
-
+    <button expand="block" (click)="sendContent()">Enviar a firebase</button>
   </div>
 
 </ion-content>

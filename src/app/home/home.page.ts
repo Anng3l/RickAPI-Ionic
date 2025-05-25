@@ -21,16 +21,12 @@ import { Router } from '@angular/router';
 
 export class HomePage implements OnInit {
   characters: any[] = [];
-  offset = 0;
-  buttonLimit = 1;
-  topLimit = 20;
 
   limit = 1;
   loading = false;
 
   characterName:string = "";
   characterData:any=null;
-
 
   constructor(private http: HttpClient, private dataService: DatosCompartidosService, private router:Router) {}
 

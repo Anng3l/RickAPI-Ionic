@@ -6,17 +6,6 @@
 
 <ion-content class="ion-padding">
 
-
-
-
-
-
-
-
-
-
-
-
   <!-- Buscador centrado -->
   <div class="busqueda-container">
     <ion-card>
@@ -38,7 +27,7 @@
     <ion-grid style="margin: auto;" class="gridSearchedCharacter">
       <ion-row>
         <ion-col size="6" *ngFor="let character of characterData.results; let i = index">
-          <ion-card class="pokemon-card">
+          <ion-card class="character-card">
             <!-- src="{{getImageUrl(i)}}" -->
             <img [src]="character.image" alt="{{ character.name }}" />
             <ion-card-header>
@@ -55,17 +44,12 @@
 
 
 
-
-
-
-
-
   <div>
-  <!-- Lista de Pokémon cargados -->
+  <!-- Lista de personajes cargados -->
     <ion-grid style="margin: auto;" class="gridCharacter">
       <ion-row>
         <ion-col size="6" *ngFor="let character of characters; let i = index">
-          <ion-card class="pokemon-card">
+          <ion-card class="character-card">
             <!-- src="{{getImageUrl(i)}}" -->
             <img [src]="getImageUrl(i)" alt="{{ character.name }}" />
             <ion-card-header>
